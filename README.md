@@ -2,7 +2,7 @@
 
 An interactive Power BI dashboard that explores student Math, Reading, and Writing scores across lunch type, test preparation, gender, race/ethnicity, and parental education.
 
-![Dashboard preview](student_dashboard_updated.png)
+![Dashboard preview](screenshots/dashboard-preview.png)
 
 ## Overview
 
