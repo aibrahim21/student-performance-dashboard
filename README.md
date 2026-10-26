@@ -1,92 +1,64 @@
 # Student Performance Dashboard
 
-An interactive Power BI dashboard that explores how 1,000 students performed in Math, Reading, and Writing, and how scores differ by gender, race/ethnicity, and parental education.
+An interactive Power BI dashboard that explores student Math, Reading, and Writing scores across lunch type, test preparation, gender, race/ethnicity, and parental education.
 
-![Dashboard screenshot](dashboard_screenshot.png)
+![Dashboard preview](student_dashboard_updated.png)
 
-## Project Goal
+## Overview
 
-To turn a flat student exam dataset into a clear, visual dashboard that answers four questions:
+This project analyzes a dataset of 1,000 students (`study_performance.csv`) to show how different factors relate to academic performance. The dashboard lets viewers explore the full student cohort and filter it to compare groups.
 
-1. **Overall performance:** how do students score in each subject?
-2. **Gender distribution:** how is the student group split between female and male students?
-3. **Performance gap:** do average scores differ across race/ethnicity groups?
-4. **Parental education impact:** how do score bands change with parents' level of education?
+## Features
 
-## Dataset
-
-- **File:** `study_performance.csv`
-- **Size:** 1,000 students, 8 columns, no missing values and no duplicate rows
-- **Columns:** `gender`, `race_ethnicity`, `parental_level_of_education`, `lunch`, `test_preparation_course`, `math_score`, `reading_score`, `writing_score`
+- **KPI cards:** Total Students, Average Math Score, Average Reading Score, Average Writing Score
+- **Overall Performance:** how the three subject scores compare
+- **Gender Distribution:** student breakdown by gender
+- **Performance Gap by Race/Ethnicity:** score differences between groups
+- **Parental Education Impact:** how parents' education level relates to scores
+- **Slicers:** filter the whole report by **Lunch Type** and **Test Preparation**
 
 ## Tools Used
 
-- **Power BI Desktop:** data model, DAX measures, visuals
-- **Power Query:** data cleaning and calculated columns
-- **DAX:** measures for counts and averages
-- **Figma:** dashboard layout and design (used as the page background)
+| Tool | Purpose |
+|------|---------|
+| **Power BI** | Data modeling, DAX measures, visuals, and interactivity |
+| **Figma** | Designing the dashboard layout, cards, icons, and background |
+| **Microsoft Fabric** | Source of the color themes (.json) applied to the visuals |
 
-## Data Preparation (Power Query)
+## Design Process
 
-- Set the three score columns to numeric types and the remaining columns to text
-- Checked data quality (nulls, blanks, duplicates)
-- Added a `Student ID` index column to give each row a unique key
-- Added an `Avg Score` column: the average of the three subject scores
-- Added a `Score Band` column: **Below 60**, **60-79**, **80+**, based on `Avg Score`
-- Added an `Education Order` column (1 = some high school up to 6 = master's degree) and used **Sort by Column**, so education levels appear in the right order instead of alphabetically
-
-## DAX Measures
-
-- `Student Count`: number of students
-- `Avg Math Score`, `Avg Reading Score`, `Avg Writing Score`: average score per subject
-- `Avg Overall Score`: average of the `Avg Score` column
-
-## Dashboard Visuals
-
-| Visual | Chart type | What it shows |
-|---|---|---|
-| KPI cards | Card | Total students and the average score per subject |
-| Overall Performance | Clustered column | Average Math, Reading, and Writing scores |
-| Gender Distribution | Pie | Student count by gender |
-| Performance Gap by Race/Ethnicity | Donut | Average overall score by group |
-| Parental Education Impact | 100% stacked bar | Share of students in each score band, by parental education |
-| Filters | Slicers | Lunch type and test preparation course |
-
-## Key Findings
-
-These numbers come directly from the dataset:
-
-- **Overall averages:** Math 66.1, Reading 69.2, Writing 68.1 (overall average 67.8)
-- **Gender:** the group has 518 female and 482 male students. Female students average higher in Reading (72.6 vs 65.5) and Writing (72.5 vs 63.3), while male students average higher in Math (68.7 vs 63.6)
-- **Race/ethnicity:** the average overall score rises from Group A (63.0) to Group E (72.8)
-- **Parental education:** students whose parents hold a master's degree have the highest average (73.6), and students whose parents finished only high school have the lowest (63.1). In the score bands, 34% of students with a master's-degree parent score 80+, compared with 10% of those whose parents finished high school
-- **Test preparation:** students who completed the course average 72.7, compared with 65.0 for those who did not
-
-These are patterns in this dataset only. They show association, not cause.
-
-## Design
-
-The layout was designed in Figma and exported as the Power BI canvas background, with the visuals placed on top of it.
-
-[View the Figma design](ADD-YOUR-FIGMA-LINK-HERE)
+1. **Layout in Figma:** I designed the dashboard frame (header, filter bar, KPI cards, and a 2x2 chart grid) at 1280 x 720 px and exported it as a PNG.
+2. **Background in Power BI:** The exported image is used as the canvas background. The canvas is set to a custom 1280 x 720 px size and the page view is set to **Fit to page**, so the dashboard displays without scrolling.
+3. **Visuals on top:** Power BI visuals are placed over the empty cards from the Figma design.
+4. **Theme from Microsoft Fabric:** I applied a downloaded theme through **View > Themes > Browse for themes** to restyle the chart colors and fonts consistently.
 
 ## Repository Contents
 
 ```
-student-performance-dashboard/
-├── student_performance_dashboard.pbix   # Power BI report
-├── study_performance.csv                # Dataset
-├── dashboard_screenshot.png             # Screenshot of the finished dashboard
-├── design/                              # Figma design export
+├── student_performance_dashboard.pbix   # Power BI report file
+├── student_dashboard_updated.png        # Dashboard design / preview image
+├── study_performance.csv                # Dataset (1,000 students)
 └── README.md
 ```
 
 ## How to Open
 
-1. Download `student_performance_dashboard.pbix`
-2. Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (free)
-3. If prompted, update the data source path to point to `study_performance.csv`
+1. Install [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Windows).
+2. Download or clone this repository.
+3. Open `student_performance_dashboard.pbix`.
+4. If Power BI asks for the data source, point it to `study_performance.csv`.
+5. Use **View > Page view > Fit to page** for the best display.
+
+## What I Learned
+
+- Designing a dashboard layout in Figma and bringing it into Power BI as a canvas background
+- Setting custom canvas sizes and page view so a report fits without scrolling
+- Applying and customizing JSON themes for consistent visual styling
+- Building slicers that filter every visual on the page
 
 ## Author
 
-**Amira Ibrahim**: aspiring data analyst, Computer Science graduate
+**Amira Ibrahim**
+Aspiring Data Analyst | Computer Science graduate, Assiut University
+
+Feel free to open an issue or reach out with feedback.
