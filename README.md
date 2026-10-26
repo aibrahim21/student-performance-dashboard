@@ -2,8 +2,7 @@
 
 An interactive Power BI dashboard that explores student Math, Reading, and Writing scores across lunch type, test preparation, gender, race/ethnicity, and parental education.
 
-![Dashboard preview](screenshots/dashboard-preview.png)
-
+![Dashboard preview](screenshots/Screenshot%202026-10-26%20231041.png)
 ## Overview
 
 This project analyzes a dataset of 1,000 students (`study_performance.csv`) to show how different factors relate to academic performance. The dashboard lets viewers explore the full student cohort and filter it to compare groups.
